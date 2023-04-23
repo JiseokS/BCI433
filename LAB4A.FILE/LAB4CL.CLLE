@@ -1,0 +1,98 @@
+000100230220             DCLF       LAB4DSP
+000101230220             DCL        &OUTQLIB *CHAR (10)
+000102230220             DCL        &OUTQ *CHAR (10)
+000103230220             DCL        &PRVSIGN *CHAR (13)
+000104230220             DCL        &DATE *CHAR (8)
+000105230220             DCL        &TIME *CHAR (8)
+000106230220             DCL        &INLPGM *CHAR (10)
+000107230220             DCL        &INLPGMLIB *CHAR (10)
+000108230220
+000109230214             SNDRCVF
+000110230214             DOWHILE    (&IN03 = '0')
+000111230220                IF         (&IN21 *EQ '1') DO
+000112230220                   CALL       QusCmdLn
+000113230220                ENDDO
+000114230215                CALLSUBR   RESET
+000115230214                SELECT
+000116230214                   WHEN       (&OPTION = '1') DO
+000117230220                      CALL       CARPAYMNT
+000118230220                      CHGVAR     &MsgTxt1 ('The students Car Payment RPGLE program was run')
+000119230220                      CHGVAR     &MsgTxt2 ('CLLE Programs can manage how an RPGLE Business +
+000120230220                                   Application is run')
+000121230220
+000122230214                   ENDDO
+000123230214                   WHEN       (&OPTION = '2') CALLSUBR OPTION2
+000124230214                   WHEN       (&OPTION = '3') CALLSUBR OPTION3
+000125230214                   WHEN       (&OPTION = '4') CALLSUBR OPTION4
+000126230214                   WHEN       (&OPTION = '5') CALLSUBR OPTION5
+000127230214                   WHEN       (&OPTION = '6') CALLSUBR OPTION6
+000128230214                   OTHERWISE  CALLSUBR OTHERS
+000129230214                ENDSELECT
+000130230214                SNDRCVF
+000131230214
+000132230214             ENDDO
+000133230214             SUBR       OPTION2
+000134230220                WRKOBJPDM  BC435A27 OBJATR('PF-SRC')
+000135230220                CHGVAR     &MsgTxt1 ('You were given access to all the source code in your +
+000136230220                             current library')
+000137230220                CHGVAR     &MsgTxt2 ('CLLE Programs can provide easy access to your objects on +
+000138230220                             the system')
+000139230220
+000140230214             ENDSUBR
+000141230214
+000142230214             SUBR       OPTION3
+000143230220                CHGVAR     &IN31 '1'
+000144230220                CHGPRF     ??INLPGM(*LIBL/CHANGETHIS)
+000145230220                CHGVAR     &MsgTxt1 ('The initial program for this user profile was changed')
+000146230220                CHGVAR     &MsgTxt2 ('CLLE Programs can limit the parameter you see for a command')
+000147230220             ENDSUBR
+000148230214
+000149230214             SUBR       OPTION4
+000150230220                RTVUSRPRF  INLPGMLIB(&INLPGMLIB) INLPGM(&INLPGM)
+000151230220                SELECT
+000152230220                   WHEN       (&INLPGM = *NONE) CHGVAR &MsgTxt1 ('The startup program for this +
+000153230220                                account is NOT SET')
+000158230220                   OTHERWISE  CHGVAR &MsgTxt1 ('The startup program for this account is' *BCAT +
+000159230220                                &INLPGMLIB *BCAT '/' *BCAT &INLPGM)
+000160230220                ENDSELECT
+000162230220
+000165230220                CHGVAR     &MsgTxt2 ('CLLE Programs can report on the logged on user information')
+000166230220
+000167230214             ENDSUBR
+000168230214
+000169230214             SUBR       OPTION5
+000170230220                DSPSYSVAL  SYSVAL(QCRTAUT)
+000171230220                CHGVAR     &MsgTxt1 ('The QGPL library Creation Authority is set to *SYSVAL')
+000172230220                CHGVAR     &MsgTxt2 ('CLLE Programs can report on system values and how they +
+000173230220                             are used')
+000174230214             ENDSUBR
+000175230214
+000176230214             SUBR       OPTION6
+000177230220                RTVUSRPRF  OUTQ(&OUTQ) OUTQLIB(&OUTQLIB)
+000178230220                RTVUSRPRF  PRVSIGN(&PRVSIGN)
+000179230220                CHGVAR     &DATE (%SST(&PRVSIGN 4 2) *CAT '/'                *CAT +
+000180230220                             %SST(&PRVSIGN 6 2) *CAT '/'                *CAT %SST(&PRVSIGN 2 2) )
+000181230220                CHGVAR     &TIME (%SST(&PRVSIGN 8 2) *CAT ':'                *CAT +
+000182230220                             %SST(&PRVSIGN 10 2) *CAT ':'                *CAT %SST(&PRVSIGN 12 2) )
+000183230220
+000184230220                CHGVAR     &MsgTxt1 ('Privious sign on for user ' *BCAT &OUTQLIB *TCAT ' was +
+000185230220                             on ' *CAT &DATE *CAT &TIME)
+000186230220
+000187230220                CHGVAR     &MsgTxt2 ('CLLE Programs can report on and manage the users on the +
+000188230220                             system')
+000189230220
+000190230220             ENDSUBR
+000191230214
+000192230214             SUBR       OTHERS
+000193230214                CHGVAR     &IN30 '1'
+000194230214                CHGVAR     &MsgTxt1 (' ')
+000195230220                CHGVAR     &MsgTxt2 (' ')
+000196230214             ENDSUBR
+000197230215
+000198230215             SUBR       RESET
+000199230215                CHGVAR     &IN30 '0'
+000200230220                CHGVAR     &IN31 '0'
+000201230220
+000202230215             ENDSUBR
+000203230214
+000204230214             ENDPGM

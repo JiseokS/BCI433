@@ -1,0 +1,20 @@
+000100230129     A                                      DSPSIZ(24 80 *DS3)
+000200230129     A          R RECORD1
+000300230129     A                                  1 64DATE
+000400230129     A                                      EDTCDE(Y)
+000500230129     A                                  2 64TIME
+000600230129     A                                  1 38'Lab 4'
+000700230129     A                                  5  3'Please select one of the following-
+000800230129     A                                       options:'
+000900230129     A                                  9 14'2.  Work with source code'
+001000230129     A                                 16 17'Option:'
+001100230129     A                                 23  4'F3=Exit'
+001200230129     A                                 23 17'F21=Comand Line '
+001300230129     A                                  1  3'Russell Pangborn'
+001400230129     A                                  2  3'Your Full Name Above'
+001500230129     A                                 13 14'6.  Previous sign on by user'
+001600230129     A                                  8 14'1.  Run Car Payment Application'
+001700230129     A                                 12 14'5.  QGPL Library Creation Authorit-
+001800230129     A                                      y Setting'
+001900230129     A                                 10 14'3.  Set the Startup Program'
+002000230129     A                                 11 14'4.  User''s Startup Program Name'
