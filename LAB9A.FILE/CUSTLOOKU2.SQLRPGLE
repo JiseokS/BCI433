@@ -1,0 +1,46 @@
+000100200323       DCL-F SQLDSP WORKSTN;
+000101200323
+000102200323       DCL-S  ShipCityNull BinDec (4:0);
+000103200323       DCL-S  DiscountNull BinDec (4:0);
+000105200323
+000106200323       EXFMT RECORD1;
+000107200323       DOW NOT (*IN03);
+000108200323
+000109200323        EXEC SQL
+000110200323         SELECT  CUSTID,
+000111200323                 NAME,
+000112200323                 SHIPCITY,
+000113200323                 DISCOUNT
+000114200323         INTO    :CUSTID,
+000115200323                 :NAME,
+000116200323                 :SHIPCITY :SHIPCITYNULL,
+000117200323                 :DISCOUNT :DISCOUNTNULL
+000118200323         FROM    BCI433LIB/CUSTOMER
+000119200323         WHERE   CUSTID = :CustIDin;
+000120200323
+000121200323         If ShipCityNull = -1;
+000122200323           ShipCity = 'Unknown';
+000123200323         EndIf;
+000124200323         If DiscountNull = -1;
+000125200323           *in99 = *on;
+000126200323         Else;
+000127200323           *in99 = *off;
+000128200323         EndIf;
+000129200323         Select;
+000130200323           when SQLCode = 100;
+000131200323             Write Record1;
+000132200323             EXFMT Record3;
+000133200323           when SQLCode <> 0 or SQLWN0 = 'W';
+000134200323             Write Record1;
+000135200323             EXFMT Record4;
+000136200323           other;
+000137200323             Write Record1;
+000138200323             EXFMT Record2;
+000139200323         ENDSL;
+000140200323
+000141200323         If *IN03 = *OFF;
+000142200323           EXFMT Record1;
+000143200323         ENDIF;
+000144200323        ENDDO;
+000145200323        *INLR = *ON;
+000146200323        Return;

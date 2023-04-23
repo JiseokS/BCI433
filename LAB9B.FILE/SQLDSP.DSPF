@@ -1,0 +1,42 @@
+000010200712     A*%%TS  SD  20200712  171322  DM434B40    REL-V7R4M0  5770-WDS
+000020200712     A*%%EC
+000030200712     A                                      DSPSIZ(24 80 *DS3)
+000040200323     A          R RECORD1
+000050200323     A                                  2 27'SQL Demonstration'
+000060200323     A                                  5 14'Enter Customer ID:'
+000070200323     A            CUSTIDIN       5   B  5 33
+000080200712     A          R RECORD2
+000090200712     A*%%TS  SD  20200712  171322  DM434B40    REL-V7R4M0  5770-WDS
+000100200712     A                                      CF03(03)
+000110200712     A                                      OVERLAY
+000120200712     A            CUSTID    R        O 10  8REFFLD(CUSTOMER/CUSTID BCI433LIB/CU-
+000130200712     A                                      STOMER)
+000140200712     A            NAME      R        O 10 18REFFLD(CUSTOMER/NAME BCI433LIB/CUST-
+000150200712     A                                      OMER)
+000160200712     A            SHIPCITY  R        O 10 37REFFLD(CUSTOMER/SHIPCITY BCI433LIB/-
+000170200712     A                                      CUSTOMER)
+000180200712     A N99        DISCOUNT  R        O 10 57REFFLD(CUSTOMER/DISCOUNT BCI433LIB/-
+000190200712     A                                      CUSTOMER)
+000200200712     A                                  8  7'Cust ID'
+000210200712     A                                  7 19'Customer'
+000220200712     A                                  7 56'Discount'
+000230200712     A                                  8 37'City'
+000240200712     A                                  8 57'Rate'
+000250200712     A                                  8 20'Name'
+000260200712     A  99                             10 63'Unknown Rate'
+000270200712     A  99                                  DSPATR(RI)
+000280200712     A                                 21  9'F3 - Exit'
+000290200712     A          R RECORD3
+000300200712     A*%%TS  SD  20200712  171322  DM434B40    REL-V7R4M0  5770-WDS
+000310200712     A                                      CF03(03)
+000320200712     A                                      OVERLAY
+000330200712     A                                 12 24'No Row Matches That Customer ID'
+000340200712     A                                      DSPATR(RI)
+000350200712     A                                 20 15'F3 - Exit'
+000360200712     A          R RECORD4
+000370200712     A*%%TS  SD  20200712  171322  DM434B40    REL-V7R4M0  5770-WDS
+000380200712     A                                      CF03(03)
+000390200712     A                                      OVERLAY
+000400200712     A                                 12 24'Unexpeced Error Occurred'
+000410200712     A                                      DSPATR(RI)
+000420200712     A                                 19 19'F3 - Exit'

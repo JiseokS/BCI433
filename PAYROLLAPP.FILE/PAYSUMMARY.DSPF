@@ -1,0 +1,29 @@
+000001230307     A          R RECORD1
+000003230307     A                                  3  5'Jiseok Shim'
+000004230307     A                                  5 12'Rates:'
+000005230307     A            DAYHRS    R    5Y 2O  6 45REFFLD(SHIFTRATES/DAYHRS +
+000006230307     A                                      SENECAPAY/SHIFTRATES)
+000007230307     A                                      EDTCDE(1)
+000008230307     A            NIGHTHRS  R    5Y 2O  8 45REFFLD(SHIFTRATES/NIGHTHRS +
+000009230307     A                                      SENECAPAY/SHIFTRATES)
+000010230307     A                                      EDTCDE(1)
+000011230307     A            AFTHRS    R    5Y 2O  7 45REFFLD(SHIFTRATES/AFTHRS +
+000012230307     A                                      SENECAPAY/SHIFTRATES)
+000013230307     A                                      EDTCDE(1)
+000014230307     A                                  2  5USER
+000015230307     A                                  2 67DATE
+000016230307     A                                      EDTCDE(Y)
+000017230307     A                                  3 67TIME
+000018230307     A                                  2 23'S E N E C A   Payroll Program Comp-
+000019230307     A                                      leted'
+000020230307     A                                  6 22'Day Hours:'
+000021230307     A                                  7 22'Afternoon Hours:'
+000022230307     A                                  8 22'Night Hours:'
+000023230307     A                                 11 11'Totals:'
+000024230307     A                                 12 22'Regular Pay:'
+000025230307     A                                 13 22'Overtime Pay:'
+000026230307     A                                 14 22'Company Payout:'
+000027230307     A            TOTREGPAY      9Y 2O 12 39EDTCDE(1)
+000028230307     A            TOTOVTPAY      9Y 2O 13 39EDTCDE(1)
+000029230307     A            TOTWKPAY       9Y 2O 14 39EDTCDE(1)
+000100      

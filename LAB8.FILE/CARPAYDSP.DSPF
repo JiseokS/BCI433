@@ -1,0 +1,68 @@
+000001230131     A          R PURCHREC
+000002230131     A                                  1 29'C A R  P U R C H A S E'
+000003230131     A                                  1 72DATE
+000004230131     A                                      EDTCDE(Y)
+000005230131     A                                  4  3'Basic Vehicle (MSRP):'
+000006230131     A            VPRICE         8Y 2B  4 27EDTCDE(2)
+000007230131     A  41                                  DSPATR(PR)
+000008230131     A  30                                  DSPATR(RI)
+000009230131     A  30                                  DSPATR(PC)
+000010230131     A  30                              4 39'Vehicle Price Missing'
+000011230131     A                                  5 42'TradeIn:'
+000012230131     A            TRADEIN        7Y 0B  5 55EDTCDE(1)
+000013230131     A  41                                  DSPATR(PR)
+000014230131     A                                  6  3'Freight:'
+000015230131     A            FREIGHT        6Y 2B  6 29EDTCDE(2)
+000016230131     A  41                                  DSPATR(PR)
+000017230131     A                                  6 42'Rebate:'
+000018230131     A            REBATE         7Y 0B  6 55EDTCDE(1)
+000019230131     A  41                                  DSPATR(PR)
+000020230131     A                                  7  3'RoadReady:'
+000021230131     A            ROADREADY      5Y 2B  7 31EDTCDE(2)
+000022230131     A  41                                  DSPATR(PR)
+000023230131     A                                  7 42'DownPayment:'
+000024230131     A            DPAYMENT       7Y 0B  7 55EDTCDE(1)
+000025230131     A  41                                  DSPATR(PR)
+000026230131     A                                  8  3'Rust Protection:'
+000027230131     A            RUSTPROTOP     1   B  8 20VALUES('Y' 'N')
+000028230131     A  41                                  DSPATR(PR)
+000029230131     A  31                                  DSPATR(RI)
+000030230131     A  31                                  DSPATR(PC)
+000031230131     A  31                              8 22'Y or N'
+000032230131     A  31                                  DSPATR(RI)
+000033230131     A            RUSTPROT       6Y 2O  8 29EDTCDE(2)
+000034230131     A                                 10  5'Interest Rate:'
+000035230131     A            RATE           4Y 2B 10 21EDTWRD('  .  ')
+000036230131     A  41                                  DSPATR(PR)
+000037230131     A  32                                  DSPATR(RI)
+000038230131     A  32                                  DSPATR(PC)
+000039230131     A                                 10 27'%'
+000040230131     A  32                             10 29'Invalid Rate Entered'
+000041230131     A                                 11  5'Term in Months:'
+000044230131     A                                  2  2'JISEOK SHIM'
+000045230131     A                                      DSPATR(RI)
+000046230131     A                                  1  2USER
+000047230208     A            TERM           2S 0B 11 22
+000048230208     A  41                                  DSPATR(PR)
+000049230131     A          R LOANREC                   CF03(03 'exit program')
+000050230131     A                                      OVERLAY
+000051230131     A                                 12  5'Subtotal:'
+000052230131     A            SUBTOTAL       8Y 2O 12 19EDTCDE(1)
+000053230131     A                                 13  5'HST:'
+000054230131     A            HST            8Y 2O 13 19EDTCDE(1)
+000055230131     A                                 14  5'Total Owing:'
+000056230131     A            TOTALOWED      8Y 2O 14 19EDTCDE(1)
+000057230131     A                                 14 39'Money Applied:'
+000058230131     A            MONEYOFF       7Y 0O 14 54EDTCDE(1)
+000059230131     A                                 16 31'C A R  L O A N'
+000060230131     A                                 18  3'Principal Owing:'
+000061230131     A            PRINCIPAL      8Y 2O 18 20EDTCDE(2)
+000062230207     A                                 20  6'M O N T H L Y  C A R  P A Y M E N -
+000063230131     A                                      T'
+000064230208     A            PAYMENT        8Y 0O 20 46EDTCDE(2)
+000065230207     A                                 24  7'F3 - Exit'
+000066230207     A                                 22 23'Total Interest Paid:'
+000067230207     A                                 23 23'Total Cost with Loan:'
+000068230207     A            TOTINTPAID     7Y 2O 22 47EDTCDE(2)
+000069230207     A            TOTLOAN        8Y 2O 23 47EDTCDE(2)
+000100
